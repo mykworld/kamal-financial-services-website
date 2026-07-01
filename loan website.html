@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kamal Financial Services</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#06152E;
+overflow-x:hidden;
+color:white;
+}
+
+/* Animated Background */
+
+.bg-animation{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-2;
+background:
+radial-gradient(circle at 20% 20%, rgba(0,119,255,0.18), transparent 25%),
+radial-gradient(circle at 80% 30%, rgba(255,187,0,0.18), transparent 25%),
+radial-gradient(circle at 50% 80%, rgba(0,255,200,0.10), transparent 30%),
+linear-gradient(135deg,#06152E,#0B2C6A,#091C3A);
+animation:bgMove 15s infinite alternate;
+}
+
+@keyframes bgMove{
+0%{
+transform:scale(1);
+}
+100%{
+transform:scale(1.08);
+}
+}
+
+/* Floating particles */
+
+.particle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.12);
+animation:float 16s infinite linear;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) translateX(100px);
+opacity:0;
+}
+}
+
+/* Navbar */
+
+.navbar{
+background:rgba(6,21,46,0.75);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+/* Hero text */
+
+.hero-text{
+background:linear-gradient(to right,#ffffff,#FFD95A,#00D2FF);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* Premium cards */
+
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 10px 35px rgba(0,0,0,0.25);
+}
+
+/* Hover */
+
+.card-hover{
+transition:0.35s;
+}
+
+.card-hover:hover{
+transform:translateY(-8px);
+box-shadow:
+0 18px 45px rgba(0,0,0,0.35),
+0 0 20px rgba(0,183,255,0.15);
+}
+
+/* Buttons */
+
+.main-btn{
+background:linear-gradient(135deg,#00A6FF,#0047FF,#FFD54A);
+padding:15px 36px;
+border-radius:16px;
+font-weight:700;
+color:white;
+transition:0.35s;
+border:none;
+cursor:pointer;
+box-shadow:
+0 10px 30px rgba(0,119,255,0.30),
+0 0 18px rgba(255,213,74,0.18);
+}
+
+.main-btn:hover{
+transform:translateY(-3px) scale(1.03);
+}
+
+/* Inputs */
+
+.input-box{
+width:100%;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.10);
+padding:16px;
+border-radius:18px;
+outline:none;
+font-size:16px;
+color:white;
+transition:0.3s;
+backdrop-filter:blur(10px);
+}
+
+.input-box::placeholder{
+color:#c7d2fe;
+}
+
+.input-box:focus{
+border-color:#FFD54A;
+box-shadow:0 0 0 4px rgba(255,213,74,0.12);
+}
+
+/* Floating buttons */
+
+.float-btn{
+position:fixed;
+right:18px;
+z-index:999;
+width:58px;
+height:58px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:white;
+transition:0.3s;
+box-shadow:0 8px 22px rgba(0,0,0,0.28);
+text-decoration:none;
+}
+
+.float-btn:hover{
+transform:scale(1.1);
+}
+
+.whatsapp{
+bottom:20px;
+background:#25D366;
+}
+
+.instagram{
+bottom:92px;
+background:linear-gradient(135deg,#FFD54A,#FF006A,#0047FF);
+}
+
+.facebook{
+bottom:164px;
+background:#1877F2;
+}
+
+/* Hero section */
+
+.hero-section{
+background:
+linear-gradient(to right, rgba(6,21,46,0.88), rgba(6,21,46,0.80)),
+url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+}
+
+/* Section title */
+
+.section-title{
+background:linear-gradient(to right,#ffffff,#FFD54A);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* Glow line */
+
+.glow-line{
+width:120px;
+height:4px;
+margin:auto;
+margin-top:10px;
+border-radius:20px;
+background:linear-gradient(to right,#00A6FF,#FFD54A);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-animation"></div>
+
+<div class="particle w-2 h-2 left-[10%]" style="animation-duration:12s;"></div>
+<div class="particle w-3 h-3 left-[30%]" style="animation-duration:18s;"></div>
+<div class="particle w-2 h-2 left-[50%]" style="animation-duration:15s;"></div>
+<div class="particle w-4 h-4 left-[70%]" style="animation-duration:20s;"></div>
+
+<nav class="navbar fixed top-0 left-0 w-full z-50 px-5 py-4 flex justify-between items-center">
+
+<h1 class="text-2xl md:text-3xl font-extrabold hero-text">
+Kamal Financial Services
+</h1>
+
+<div class="hidden md:flex gap-8 text-sm font-medium text-white">
+<a href="#services" class="hover:text-yellow-300 transition">Services</a>
+<a href="#reviews" class="hover:text-yellow-300 transition">Reviews</a>
+<a href="#faq" class="hover:text-yellow-300 transition">FAQ</a>
+<a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+</div>
+
+</nav>
+
+<section class="hero-section min-h-screen flex items-center justify-center text-center px-6">
+
+<div class="max-w-4xl">
+
+<h1 class="text-5xl md:text-7xl font-extrabold leading-tight hero-text">
+Fast Personal Loans
+<br>
+With Easy Approval
+</h1>
+
+<p class="mt-6 text-blue-100 text-lg max-w-2xl mx-auto">
+Trusted financial assistance with fast approval, minimal documents and quick support.
+</p>
+
+<div class="mt-10 flex flex-wrap gap-5 justify-center">
+
+<a href="#form" class="main-btn">
+Apply Now
+</a>
+
+<a href="https://wa.me/918979342327"
+class="border border-yellow-300 px-8 py-3 rounded-xl hover:bg-yellow-300/10 transition text-white">
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="py-16 px-6">
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<div class="glass rounded-3xl p-8 text-center card-hover">
+<h2 class="text-4xl font-bold text-yellow-300">500+</h2>
+<p class="text-blue-100 mt-2">Happy Clients</p>
+</div>
+
+<div class="glass rounded-3xl p-8 text-center card-hover">
+<h2 class="text-4xl font-bold text-cyan-300">₹2Cr+</h2>
+<p class="text-blue-100 mt-2">Loans Approved</p>
+</div>
+
+<div class="glass rounded-3xl p-8 text-center card-hover">
+<h2 class="text-4xl font-bold text-yellow-300">24×7</h2>
+<p class="text-blue-100 mt-2">Customer Support</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="services" class="py-20 px-6">
+
+<h2 class="text-4xl font-bold text-center section-title">
+Our Services
+</h2>
+
+<div class="glow-line"></div>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-14">
+
+<div class="glass rounded-3xl p-8 card-hover">
+<h3 class="text-2xl font-semibold mb-4 text-yellow-300">
+Personal Loan
+</h3>
+
+<p class="text-blue-100">
+Quick approval personal loans with minimal documentation and flexible EMI options.
+</p>
+</div>
+
+<div class="glass rounded-3xl p-8 card-hover">
+<h3 class="text-2xl font-semibold mb-4 text-cyan-300">
+Business Loan
+</h3>
+
+<p class="text-blue-100">
+Grow your business with easy financing and fast processing support.
+</p>
+</div>
+
+<div class="glass rounded-3xl p-8 card-hover">
+<h3 class="text-2xl font-semibold mb-4 text-yellow-300">
+Financial Guidance
+</h3>
+
+<p class="text-blue-100">
+Professional support for choosing the best financial solutions.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- UPDATED FORM -->
+
+<section id="form" class="py-20 px-4">
+
+<div class="glass max-w-3xl mx-auto rounded-[32px] p-6 md:p-10 overflow-hidden">
+
+<h2 class="text-4xl md:text-5xl font-extrabold text-center hero-text mb-10">
+Quick Loan Inquiry
+</h2>
+
+<form onsubmit="sendToWhatsApp(); return false;"
+class="grid gap-6">
+
+<input type="text"
+id="name"
+placeholder="Full Name"
+required
+class="input-box">
+
+<input type="tel"
+id="phone"
+placeholder="Mobile Number"
+required
+class="input-box">
+
+<!-- CITY FIELD -->
+<input type="text"
+id="city"
+placeholder="Enter Your City"
+required
+class="input-box">
+
+<input type="text"
+id="loan"
+placeholder="Loan Amount"
+required
+class="input-box">
+
+<p class="text-yellow-300 text-sm text-center">
+Currently services available only in Dehradun
+</p>
+
+<button type="submit" class="main-btn w-full">
+Submit Inquiry
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section id="reviews" class="py-20 px-6">
+
+<h2 class="text-4xl font-bold text-center section-title">
+Customer Reviews
+</h2>
+
+<div class="glow-line"></div>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-14">
+
+<div class="glass rounded-3xl p-8 card-hover">
+<p class="text-blue-100">
+“Very smooth process and quick support. Highly recommended.”
+</p>
+
+<h4 class="mt-5 font-semibold text-yellow-300">
+Rahul Sharma
+</h4>
+</div>
+
+<div class="glass rounded-3xl p-8 card-hover">
+<p class="text-blue-100">
+“Fast approval and professional guidance throughout.”
+</p>
+
+<h4 class="mt-5 font-semibold text-cyan-300">
+Aman Verma
+</h4>
+</div>
+
+<div class="glass rounded-3xl p-8 card-hover">
+<p class="text-blue-100">
+“Best financial service experience. Great support team.”
+</p>
+
+<h4 class="mt-5 font-semibold text-yellow-300">
+Priya Mehta
+</h4>
+</div>
+
+</div>
+
+</section>
+
+<section id="faq" class="py-20 px-6">
+
+<h2 class="text-4xl font-bold text-center section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="glow-line"></div>
+
+<div class="max-w-4xl mx-auto space-y-6 mt-14">
+
+<div class="glass rounded-2xl p-6">
+<h3 class="font-semibold text-xl text-yellow-300">
+What documents are required?
+</h3>
+
+<p class="text-blue-100 mt-3">
+PAN Card, Aadhaar Card, bank statement and income proof.
+</p>
+</div>
+
+<div class="glass rounded-2xl p-6">
+<h3 class="font-semibold text-xl text-cyan-300">
+How fast is loan approval?
+</h3>
+
+<p class="text-blue-100 mt-3">
+Most applications receive quick responses within a short time.
+</p>
+</div>
+
+<div class="glass rounded-2xl p-6">
+<h3 class="font-semibold text-xl text-yellow-300">
+Can self-employed people apply?
+</h3>
+
+<p class="text-blue-100 mt-3">
+Yes, both salaried and self-employed applicants can apply.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="py-20 px-6">
+
+<div class="glass max-w-4xl mx-auto rounded-3xl p-10 text-center">
+
+<h2 class="text-4xl font-bold hero-text mb-6">
+Contact Us
+</h2>
+
+<p class="text-blue-100 text-lg">
+📞 +91 8979342327
+</p>
+
+<p class="text-blue-100 text-lg mt-3">
+📩 kk9548796931@gmail.com
+</p>
+
+<div class="mt-8">
+<a href="https://wa.me/918979342327"
+class="main-btn">
+Chat on WhatsApp
+</a>
+</div>
+
+</div>
+
+</section>
+
+<footer class="py-8 text-center border-t border-white/10 text-blue-200">
+© 2026 Kamal Financial Services • All Rights Reserved
+</footer>
+
+<a href="https://wa.me/918979342327"
+class="float-btn whatsapp">
+💬
+</a>
+
+<a href="https://www.instagram.com/kamal_finances?igsh=aXh0Z2VmdXVncms2"
+class="float-btn instagram">
+📸
+</a>
+
+<a href="https://www.facebook.com/share/18hXD1RUsm"
+class="float-btn facebook">
+f
+</a>
+
+<!-- UPDATED WHATSAPP SCRIPT -->
+
+<script>
+
+function sendToWhatsApp(){
+
+let name = document.getElementById("name").value;
+
+let phone = document.getElementById("phone").value;
+
+let city = document.getElementById("city").value.trim().toLowerCase();
+
+let loan = document.getElementById("loan").value;
+
+/* DEHRADUN VALIDATION */
+
+if(city !== "dehradun"){
+
+alert("⚠ Currently loan services are available only in Dehradun. Kindly enter Dehradun to continue.");
+
+return;
+
+}
+
+let message =
+"✨ New Loan Inquiry ✨%0A%0A" +
+"👤 Name: " + name + "%0A" +
+"📞 Mobile: " + phone + "%0A" +
+"📍 City: " + city + "%0A" +
+"💰 Loan Amount: " + loan;
+
+window.open(
+"https://wa.me/918979342327?text=" + message,
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
